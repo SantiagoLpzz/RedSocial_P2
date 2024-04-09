@@ -20,7 +20,7 @@ using namespace std;
 //METODOS -----
 
 void RedSocial::agregarUsuario(Usuario* usuario){
-    usuarios.push_back(usuario);
+    this->usuarios.push_back(usuario);
 }
 
 void RedSocial::mostrarUsuarios(){
@@ -31,7 +31,7 @@ void RedSocial::mostrarUsuarios(){
 }
 
 void RedSocial::agregarPublicaciones(Publicacion* publicacion){
-    publicaciones.push_back(publicacion);
+    this->publicaciones.push_back(publicacion);
 };
 
 void RedSocial::mostrarPublicaciones(){

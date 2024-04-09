@@ -53,14 +53,15 @@ int main() {
         }
         case 3: {
 
-            int idUsuario,uMenuOp=1,id_before,idUsuarioAmigo;
+            int idUsuario,uMenuOp=1,id_before,idUsuarioAmigo,idUsuarioPos;
+            bool forAmigo;
             Usuario* usuarioExplorado;
             Usuario* usuarioExploradoNewAmigo;
 
-            exploreAmigo:
             cout << ".INGRESE EL ID DEL USUARIO QUE DESEA ENCONTRAR" << endl<<endl<<"-->";
             cin >> idUsuario;
-
+            exploreAmigo:
+            forAmigo=0;
             usuarioExplorado = pruebaRed.getUsuario(idUsuario);
             if (usuarioExplorado != nullptr)
             {
@@ -76,7 +77,7 @@ int main() {
                 cout << endl<<endl;
                     }
 
-                cout<<"0. SALIR"<<endl<<"1. VER INFORMACION DEL USUARIO "<<endl<<"2. VER LISTA DE AMIGOS"<<endl<<"3. VER PUBLICACIONES"<<endl<<"4. CREAR PUBLICACION"<<endl<<"5. ENTRAR A PERFIL DE AMIGO"<<endl<<"6. AGREGAR UN NUEVO AMIGO"<<endl<<endl<<"-->";
+                cout<<"0. SALIR"<<endl<<"1. VER INFORMACION DEL USUARIO "<<endl<<"2. VER LISTA DE AMIGOS"<<endl<<"3. VER PUBLICACIONES"<<endl<<"4. CREAR PUBLICACION"<<endl<<"5. ENTRAR A PERFIL DE AMIGO"<<endl<<"6. AGREGAR UN NUEVO AMIGO"<<endl<<endl<<"--> ";
                 cin>>uMenuOp;
                 if (uMenuOp == 1){
                     
@@ -100,7 +101,18 @@ int main() {
                     goto exploreAmigo;
                 }
                 if (uMenuOp == 5){
+                    cout << ".INGRESE EL ID DEL USUARIO QUE DESEA ENCONTRAR" << endl<<endl<<"--> ";
+                    cin >> idUsuarioAmigo;
+                    for (int i=0;i < pruebaRed.getUsuario(idUsuario)->amigos.size();i++){
+                        if (idUsuarioAmigo==pruebaRed.getUsuario(idUsuario)->amigos[i]->getId()){
+                            forAmigo=1;
+                        }
+                    }
+                    if (forAmigo==1){
                     goto exploreAmigo;
+                    }else {
+                        cout<<".ESTE USUARIO NO ES TU AMIGO"<<endl;
+                    }
                 }
                 if (uMenuOp == 6){
                     pruebaRed.mostrarUsuarios();
