@@ -30,6 +30,10 @@ void RedSocial::mostrarUsuarios(){
     }
 }
 
+void RedSocial::agregarPublicaciones(Publicacion* publicacion){
+    publicaciones.push_back(publicacion);
+};
+
 void RedSocial::mostrarPublicaciones(){
     for (int i=0;i<publicaciones.size();i++){
         publicaciones[i]->mostrarPublicacion();

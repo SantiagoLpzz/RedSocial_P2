@@ -24,6 +24,7 @@ public:
 //METODOS
     void agregarUsuario(Usuario* usuario);
     void mostrarUsuarios();
+    void agregarPublicaciones(Publicacion* publicacion);
     void mostrarPublicaciones();
     Usuario* getUsuario(int id);
 

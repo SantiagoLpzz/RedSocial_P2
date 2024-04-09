@@ -12,17 +12,17 @@ using namespace std;
 
 class Publicacion{
 private:
-    int id;
+    int idp;
 public:
     string fecha;
     string contenido;
     Usuario* usuario;
 
 //METODOS
+    int getIdp();
     void mostrarPublicacion();
-
 //CONSTRUCTORES
-    Publicacion(Usuario* usuario, string fecha, string contenido);
+    Publicacion(int od,Usuario* usuario, string fecha, string contenido);
 };
 
 #endif

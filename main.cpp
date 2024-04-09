@@ -7,15 +7,25 @@
 using namespace std;
 
 int main() {
-    Usuario new1(1,"Orion",16,"Mexicano");
-    Usuario new2(2,"Santiago",18,"Extraterrestre");
-    Usuario new3(3,"Juan",17,"Chileno");
-    vector <Usuario*> usus;
-    usus.push_back(&new1);
-    usus.push_back(&new2);
-    usus.push_back(&new3);
-    RedSocial pruebaRed("SHOPIBUY",usus);
-    int option,od=4;
+        Usuario new1(1,"Orion",16,"Mexicano");
+        Usuario new2(2,"Santiago",18,"Extraterrestre");
+        Usuario new3(3,"Juan",17,"Chileno");
+        Publicacion puw1(1,&new1,"08/04/2024","No me funciona el codigo, pipipipi");
+        Publicacion puw2(2,&new3,"14/05/2024","No me importa");
+        Publicacion puw3(3,&new1,"015/04/2024","Como asi chavalin, PREOCUPESE");
+            new1.agregarPublicacion(&puw1);
+            new3.agregarPublicacion(&puw2);
+            new1.agregarPublicacion(&puw3);
+                vector <Usuario*> usus;
+                vector <Publicacion*> publ;
+        usus.push_back(&new1);
+        usus.push_back(&new2);
+        usus.push_back(&new3);
+            publ.push_back(&puw1);
+            publ.push_back(&puw2);
+            publ.push_back(&puw3);
+    RedSocial pruebaRed("SHOPIBUY",usus,publ);
+    int option,odu=4,odp=4;
     bool off=0;
     again:
     option = 0;
@@ -54,6 +64,7 @@ int main() {
             usuarioExplorado = pruebaRed.getUsuario(idUsuario);
             if (usuarioExplorado != nullptr)
             {
+                    MenuUsu:
                 while(uMenuOp!=0){
                 cout<<".MENU USUARIO --- "<<pruebaRed.getUsuario(idUsuario)->nombre << endl<<endl;
                     if(uMenuOp==1){
@@ -81,9 +92,12 @@ int main() {
                     cout << ".PUBLICACIONES DEL USUARIO" << endl;
                     pruebaRed.getUsuario(idUsuario)->mostrarPublicaciones();
                     cout << endl;
+                    goto MenuUsu;
                 }
                 if (uMenuOp == 4){
-                    pruebaRed.getUsuario(idUsuario)->crearPublicacion();
+                    pruebaRed.agregarPublicaciones(pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp));
+                    cout<<".                                                              YEEEEEEEEEEEEAAAAAAAAAAAAAHHHHHH"<<endl;
+                    goto exploreAmigo;
                 }
                 if (uMenuOp == 5){
                     goto exploreAmigo;
@@ -91,39 +105,18 @@ int main() {
                 if (uMenuOp == 6){
                     pruebaRed.mostrarUsuarios();
                     cin>>idUsuarioAmigo;
+                    if (idUsuarioAmigo!=idUsuario){
                     usuarioExploradoNewAmigo = pruebaRed.getUsuario(idUsuarioAmigo);
                     pruebaRed.getUsuario(idUsuario)->agregarAmigos(usuarioExploradoNewAmigo);
+                    }else {
+                        cout<<".NO PUEDES SER TU PROPIO AMIGO BOOMER"<<endl;
+                    }
                 }
 
                 }
             } else {
                 cout << ".NO SE ENCONTRARON COINCIDENCIAS CON EL ID QUE INGRESO" << endl;
             }
-        
-
-            /*
-            int idUsuario;
-            cout << "Ingrese el ID del usuario que desea encontrar" << endl;
-            cin >> idUsuario;
-
-            Usuario* usuarioExplorado = pruebaRed.getUsuario(idUsuario);
-            if (usuarioExplorado != nullptr) {
-                cout << "Infromacion del usuario:" << endl;
-                cout << "Nombre: " << usuarioExplorado->nombre << endl;
-                cout << "Edad: " << usuarioExplorado->edad << endl;
-                cout << "Nacionalidad: " << usuarioExplorado->nacionalidad << endl;
-                cout << endl;
-
-                cout << "Amigos de usuario" << endl;
-                usuarioExplorado->mostrarAmigos();
-                cout << endl;
-
-                cout << "Publicaciones del usuario:" << endl;
-                usuarioExplorado->mostrarPublicaciones();
-                cout << endl;
-            } else {
-                cout << "No se encontraron coincidencias con el ID que ingreso" << endl;
-            }*/
             off=1;
             break;
         }
@@ -132,8 +125,8 @@ int main() {
             int age;
             cout << "Ingrese el nombre, edad y nacionalidad del nuevo usuario" << endl;
             cin >> name >> age >> nationality;
-            Usuario newusuario(od,name, age, nationality);
-            od++;
+            Usuario newusuario(odu,name, age, nationality);
+            odu++;
             pruebaRed.agregarUsuario(&newusuario);
             off=1;
             break;
@@ -148,6 +141,7 @@ int main() {
     if (off==1){
         goto again;
     }
+    cout<<"BYE BYE";
     return 0;
 }
 

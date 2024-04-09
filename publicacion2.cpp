@@ -15,13 +15,20 @@ using namespace std;
     Publicacion(Usuario* usuario, string fecha, string contenido);
 */
 
-void Publicacion::mostrarPublicacion(){
-    cout<<fecha<<endl;
-    cout<<contenido<<endl;
-    cout<<usuario->nombre;
+int Publicacion::getIdp(){
+    return idp;
 }
 
-Publicacion::Publicacion(Usuario* usuario, string fecha, string contenido){
+void Publicacion::mostrarPublicacion(){
+    cout<<"-----"<<endl;
+    cout<<"| "<<fecha<<endl;
+    cout<<"| <"<<contenido<<">"<<endl;
+    cout<<"| --> "<<usuario->nombre<<" .ID "<<usuario->getId()<<endl;
+    cout<<"-------------------- .IDP "<<idp<<endl;
+}
+
+Publicacion::Publicacion(int od,Usuario* usuario, string fecha, string contenido){
+    this->idp=od;
     this->usuario=usuario;
     this->fecha=fecha;
     this->contenido=contenido;
