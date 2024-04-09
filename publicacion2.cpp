@@ -21,10 +21,10 @@ int Publicacion::getIdp(){
 
 void Publicacion::mostrarPublicacion(){
     cout<<"-----"<<endl;
-    cout<<"| "<<fecha<<endl;
-    cout<<"| <"<<contenido<<">"<<endl;
-    cout<<"| --> "<<usuario->nombre<<" .ID "<<usuario->getId()<<endl;
-    cout<<"-------------------- .IDP "<<idp<<endl;
+    cout<<"| "<<this->fecha<<endl;
+    cout<<"| < "<<this->contenido<<" >"<<endl;
+    cout<<"| --> "<<this->usuario->nombre<<" .ID "<<this->usuario->getId()<<endl;
+    cout<<"-------------------- .IDP "<<this->idp<<endl;
 }
 
 Publicacion::Publicacion(int od,Usuario* usuario, string fecha, string contenido){

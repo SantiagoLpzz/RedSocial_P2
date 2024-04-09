@@ -77,7 +77,13 @@ int main() {
                 cout << endl<<endl;
                     }
 
-                cout<<"0. SALIR"<<endl<<"1. VER INFORMACION DEL USUARIO "<<endl<<"2. VER LISTA DE AMIGOS"<<endl<<"3. VER PUBLICACIONES"<<endl<<"4. CREAR PUBLICACION"<<endl<<"5. ENTRAR A PERFIL DE AMIGO"<<endl<<"6. AGREGAR UN NUEVO AMIGO"<<endl<<endl<<"--> ";
+                cout<<"0. SALIR"<<endl;
+                cout<<"1. VER INFORMACION DEL USUARIO "<<endl;
+                cout<<"2. VER LISTA DE AMIGOS"<<endl;
+                cout<<"3. VER PUBLICACIONES"<<endl;
+                cout<<"4. CREAR PUBLICACION"<<endl;
+                cout<<"5. ENTRAR A PERFIL DE AMIGO"<<endl;
+                cout<<"6. AGREGAR UN NUEVO AMIGO"<<endl<<endl<<"--> ";
                 cin>>uMenuOp;
                 if (uMenuOp == 1){
                     
@@ -96,12 +102,15 @@ int main() {
                     goto MenuUsu;
                 }
                 if (uMenuOp == 4){
-                    pruebaRed.agregarPublicaciones(pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp));
-                    cout<<".                                                              YEEEEEEEEEEEEAAAAAAAAAAAAAHHHHHH"<<endl;
+                    pruebaRed.numeroDePublicaciones++;
+                    pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp);
+                    /*pruebaRed.agregarPublicaciones(pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp));
+                    cout<<". */
+                    //crearPublicacion();                                                             YEEEEEEEEEEEEAAAAAAAAAAAAAHHHHHH"<<endl;
                     goto exploreAmigo;
                 }
                 if (uMenuOp == 5){
-                    cout << ".INGRESE EL ID DEL USUARIO QUE DESEA ENCONTRAR" << endl<<endl<<"--> ";
+                    cout << ".INGRESE EL ID DEL AMIGO QUE DESEA ENCONTRAR" << endl<<endl<<"--> ";
                     cin >> idUsuarioAmigo;
                     for (int i=0;i < pruebaRed.getUsuario(idUsuario)->amigos.size();i++){
                         if (idUsuarioAmigo==pruebaRed.getUsuario(idUsuario)->amigos[i]->getId()){
@@ -109,9 +118,14 @@ int main() {
                         }
                     }
                     if (forAmigo==1){
+                    idUsuario=idUsuarioAmigo;
                     goto exploreAmigo;
                     }else {
-                        cout<<".ESTE USUARIO NO ES TU AMIGO"<<endl;
+                        if (idUsuario==idUsuarioAmigo){
+                            cout<<".ESTE USUARIO NO ES TU AMIGO PUES ERES TU"<<endl;
+                        }else {
+                            cout<<".ESTE USUARIO NO ES TU AMIGO"<<endl;
+                        }
                     }
                 }
                 if (uMenuOp == 6){
@@ -137,14 +151,16 @@ int main() {
             int age;
             cout << "Ingrese el nombre, edad y nacionalidad del nuevo usuario" << endl;
             cin >> name >> age >> nationality;
+            //pruebaRed.ayuda_AU(odu);
+
             Usuario newusuario(odu,name, age, nationality);
-            odu++;
             pruebaRed.agregarUsuario(&newusuario);
+            odu++;
             off=1;
             break;
         }
         default: {
-            cout<<". INSERTE UNA OPCION CONSIDERADA PRO EL PROGRAMA"<<endl<<endl;
+            cout<<". INSERTE UNA OPCION CONSIDERADA POR EL PROGRAMA"<<endl<<endl;
             off=1;
             break;
         }

@@ -26,6 +26,7 @@ public:
     void mostrarUsuarios();
     void agregarPublicaciones(Publicacion* publicacion);
     void mostrarPublicaciones();
+    void ayuda_AU(int odu);
     Usuario* getUsuario(int id);
 
 //CONSTRUCTORES

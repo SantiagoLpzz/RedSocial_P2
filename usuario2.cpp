@@ -58,10 +58,10 @@ void Usuario::mostrarAmigos(){
 void Usuario::mostrarPublicaciones(){
     cout << ". " << nombre << endl<<endl;
 
-    for (int i=0;i<publicaciones.size();i++){
+    for (int i=0;i<this->publicaciones.size();i++){
         cout<<i+1<<"."<<endl;
-        Publicacion* publicacion = publicaciones[i];
-        publicaciones[i]->mostrarPublicacion();
+        Publicacion* publicacion = this->publicaciones[i];
+        this->publicaciones[i]->mostrarPublicacion();
         /*
         cout << "Fecha: " << publicaciones[i]->fecha << endl;
         cout << "Contenido: " << publicacion->contenido << endl;
@@ -76,17 +76,17 @@ void Usuario::agregarAmigos(Usuario* nuevoAmigo){
     nuevoAmigo->amigos.push_back(this);
 }
 //¯\_(ツ)_/¯
-Publicacion* Usuario::crearPublicacion(int odp){
+void Usuario::crearPublicacion(int odp){
     string fecha,contenido;
-    cout<<endl<<".INTRODUSCA LA FECHA DEL DIA DE HOY"<<endl<<endl<<"-->";
+    cout<<endl<<".INTRODUSCA LA FECHA DEL DIA DE HOY"<<endl<<endl<<"--> ";
     cin>>fecha;
-    cout<<endl<<".INTRODUSCA EL CONTENIDO DE LA PUBLICACION"<<endl<<endl<<"-->";
+    cout<<endl<<".INTRODUSCA EL CONTENIDO DE LA PUBLICACION"<<endl<<endl<<"--> ";
     cin>>contenido;
     cout<<endl;
     Publicacion nueva(odp,this,fecha,contenido);
-    publicaciones.push_back(&nueva);
-    Publicacion* send = &nueva;
-    return (send);
+    this->publicaciones.push_back(&nueva);
+    //Publicacion* send = &nueva;
+    //return (send);
 }
 
 void Usuario::agregarPublicacion(Publicacion* NuevaPublicacion){

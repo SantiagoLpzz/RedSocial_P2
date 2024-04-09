@@ -29,7 +29,7 @@ public:
     void mostrarPublicaciones();
     void agregarAmigos(Usuario* nuevoAmigo);
     void agregarPublicacion(Publicacion* NuevaPublicacion);
-    Publicacion* crearPublicacion(int odp);
+    void crearPublicacion(int odp);
     Usuario* getAmigo(int id);
 
 //CONSTRUCTORES
