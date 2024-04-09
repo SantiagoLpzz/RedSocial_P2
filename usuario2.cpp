@@ -1,4 +1,6 @@
 #include <iostream>
+#include <time.h>
+#include <stdlib.h>
 #include "usuario2.h"
 #include "redSocial2.h"
 #include "publicacion2.h"
@@ -30,30 +32,36 @@ int Usuario::getId(){
 }
 
 void Usuario::mostrar(){
-    cout<<nombre;
-    cout<<edad;
-    cout<<nacionalidad;
-    cout<<id;
+    cout<<"Nombre: "<<nombre<<endl;
+    cout<<"Edad: "<<edad<<endl;
+    cout<<"Nacionalidad: "<<nacionalidad<<endl;
+    cout<<"Id: "<<id<<endl;
 }
 //Creo que ya esta pero no puedo compilar
 void Usuario::mostrarAmigos(){
-        cout << "Los amigos de " << nombre << " son:" << endl;
-
+        cout << ".LOS AMIGOS DE " << nombre << " SON" << endl<< endl;
         for (int i = 0; i < amigos.size(); i++)
         {
+            cout<<i+1<<"."<<endl;
             Usuario* amigo = amigos[i];
 
             cout << "Nombre: " << amigo->nombre << endl;
             cout << "Edad: " << amigo->edad << endl;
             cout << "Nacionalidad: " << amigo->nacionalidad << endl;
+            cout<< "Id: "<< amigo->getId() <<endl;
             cout << endl;
+            //Tal vez arriesgarnos y usar la funcion mostrar() de amigo??????
 
         }
 }
 
 void Usuario::mostrarPublicaciones(){
+    cout << ".LAS PUBLCIACIONES DE " << nombre << " SON" << endl<<endl;
+
     for (int i=0;i<publicaciones.size();i++){
+        cout<<i+1<<"."<<endl;
         Publicacion* publicacion = publicaciones[i];
+
         cout << "Fecha: " << publicacion->fecha << endl;
         cout << "Contenido: " << publicacion->contenido << endl;
         cout << "Usuario: " << publicacion->usuario->nombre << endl;
@@ -67,7 +75,13 @@ void Usuario::agregarAmigos(Usuario* nuevoAmigo){
 }
 //¯\_(ツ)_/¯
 void Usuario::crearPublicacion(){
-    Publicacion nueva(this, "Fecha de publicacion de", "Contenido de la publicacion");
+    string fecha,contenido;
+    cout<<endl<<".INTRODUSCA LA FECHA DEL DIA DE HOY"<<endl<<endl<<"-->";
+    cin>>fecha;
+    cout<<endl<<".INTRODUSCA EL CONTENIDO DE LA PUBLICACION"<<endl<<endl<<"-->";
+    cin>>contenido;
+    cout<<endl;
+    Publicacion nueva(this,fecha,contenido);
     publicaciones.push_back(&nueva);
 }
 
@@ -83,17 +97,29 @@ Usuario* Usuario::getAmigo(int id){
 
 //CONSTRUCTORES -----
 
-Usuario::Usuario (string nom){
+Usuario::Usuario (int od,string nom){
+    this->id=od;
     this->nombre=nom;
+
+    srand(time(NULL));
+    this->id = this->li_u + rand() % (this->ls_u + 1 -this->li_u); //Randomizacion de la id
 }
 
-Usuario::Usuario (string nom,int ed){
+Usuario::Usuario (int od,string nom,int ed){
+    this->id=od;
     this->nombre=nom;
     this->edad=ed;
+
+    //srand(time(NULL));
+    //this->id = this->li_u + rand() % (this->ls_u + 1 -this->li_u); //Randomizacion de la id
 }
 
-Usuario::Usuario (string nom,int ed,string nac){
+Usuario::Usuario (int od,string nom,int ed,string nac){
+    this->id=od;
     this->nombre=nom;
     this->edad=ed;
     this->nacionalidad=nac;
+
+    //srand(time(NULL));
+    //this->id = this->li_u + rand() % (this->ls_u + 1 -this->li_u); //Randomizacion de la id
 }

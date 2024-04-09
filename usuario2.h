@@ -12,6 +12,9 @@ using namespace std;
 class Usuario{
 private:
     int id;
+
+    int li_u=1; //limite inferior para la randomización del id;
+    int ls_u=10000; //limite superior para la randomización del id;
 public:
     string nombre;
     int edad;
@@ -29,9 +32,9 @@ public:
     Usuario* getAmigo(int id);
 
 //CONSTRUCTORES
-    Usuario(string nombre);
-    Usuario(string nombre, int edad);
-    Usuario(string nombre, int edad,string nacionalidad);
+    Usuario(int od,string nombre);
+    Usuario(int od,string nombre, int edad);
+    Usuario(int od,string nombre, int edad,string nacionalidad);
 
 };
 
