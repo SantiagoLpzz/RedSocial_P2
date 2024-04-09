@@ -60,7 +60,7 @@ void Usuario::mostrarPublicaciones(){
 
     for (int i=0;i<this->publicaciones.size();i++){
         cout<<i+1<<"."<<endl;
-        Publicacion* publicacion = this->publicaciones[i];
+        //Publicacion* publicacion = this->publicaciones[i];
         this->publicaciones[i]->mostrarPublicacion();
         /*
         cout << "Fecha: " << publicaciones[i]->fecha << endl;
@@ -83,8 +83,8 @@ void Usuario::crearPublicacion(int odp){
     cout<<endl<<".INTRODUSCA EL CONTENIDO DE LA PUBLICACION"<<endl<<endl<<"--> ";
     cin>>contenido;
     cout<<endl;
-    Publicacion nueva(odp,this,fecha,contenido);
-    this->publicaciones.push_back(&nueva);
+    Publicacion* nueva = new Publicacion(odp,this,fecha,contenido);
+    this->publicaciones.push_back(nueva);
     //Publicacion* send = &nueva;
     //return (send);
 }

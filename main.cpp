@@ -153,8 +153,8 @@ int main() {
             cin >> name >> age >> nationality;
             //pruebaRed.ayuda_AU(odu);
 
-            Usuario newusuario(odu,name, age, nationality);
-            pruebaRed.agregarUsuario(&newusuario);
+            Usuario* newusuario = new Usuario(odu,name, age, nationality);
+            pruebaRed.agregarUsuario(newusuario);
             odu++;
             off=1;
             break;
