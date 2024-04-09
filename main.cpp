@@ -129,6 +129,7 @@ int main() {
                     }
                 }
                 if (uMenuOp == 6){
+                    cout << "Introduzca el id del usuario que desea agregar como amigo" << endl;
                     pruebaRed.mostrarUsuarios();
                     cin>>idUsuarioAmigo;
                     if (idUsuarioAmigo!=idUsuario){

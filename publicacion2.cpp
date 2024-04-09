@@ -33,3 +33,4 @@ Publicacion::Publicacion(int od,Usuario* usuario, string fecha, string contenido
     this->fecha=fecha;
     this->contenido=contenido;
 }
+
