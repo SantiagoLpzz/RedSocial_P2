@@ -128,7 +128,7 @@ int main() {
                         }
                     }
                 }
-                if (uMenuOp == 6){z
+                if (uMenuOp == 6){
                     pruebaRed.mostrarUsuarios();
                     cin>>idUsuarioAmigo;
                     if (idUsuarioAmigo!=idUsuario){
