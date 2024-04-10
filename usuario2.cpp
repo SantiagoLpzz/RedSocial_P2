@@ -148,6 +148,8 @@ Venta* Usuario::crearVenta(int odv) {
 Usuario::Usuario (int od,string nom){
     this->id=od;
     this->nombre=nom;
+    this->edad = 0;
+    this->nacionalidad = "Desconocido";
 
     srand(time(NULL));
     this->id = this->li_u + rand() % (this->ls_u + 1 -this->li_u); //Randomizacion de la id
@@ -157,6 +159,7 @@ Usuario::Usuario (int od,string nom,int ed){
     this->id=od;
     this->nombre=nom;
     this->edad=ed;
+    this->nacionalidad = "Desconocido";
 
     //srand(time(NULL));
     //this->id = this->li_u + rand() % (this->ls_u + 1 -this->li_u); //Randomizacion de la id
