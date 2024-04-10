@@ -25,7 +25,7 @@ void Publicacion::mostrarPublicacion(){
     cout<<"| "<<this->fecha<<endl;
     cout<<"| < "<<this->contenido<<" >"<<endl;
     cout<<"| --> "<<this->usuario->nombre<<" .ID "<<this->usuario->getId()<<endl;
-    cout<<"-------------------- .IDP "<<this->idp<<endl;
+    cout<<"-------------------- .ID Publicacion "<<this->idp<<endl;
 }
 
 Publicacion::Publicacion(int od,Usuario* usuario, string fecha, string contenido){

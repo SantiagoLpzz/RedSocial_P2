@@ -56,6 +56,15 @@ void Usuario::mostrarAmigos(){
         }
 }
 
+void Usuario::mostrarVentas(){
+    cout << ". " << nombre << endl<<endl;
+
+    for (int i=0;i<this->ventas.size();i++){
+        cout<<i+1<<"."<<endl;
+        this->ventas[i]->mostrarVenta();
+    }
+}
+
 void Usuario::mostrarPublicaciones(){
     cout << ". " << nombre << endl<<endl;
 
@@ -115,8 +124,9 @@ Venta* Usuario::crearVenta(int odv) {
     cin >> precio;
     cout << endl << "Introduzca el lugar de la venta: ";
     cin >> lugarDeVenta;
-
-    return new Venta(odv, this, fecha, contenido, precio, lugarDeVenta);
+    Venta* nuevav = new Venta(odv, this, fecha, contenido, precio, lugarDeVenta);
+    this->ventas.push_back(nuevav);
+    return nuevav;
 }
 
 //CONSTRUCTORES -----

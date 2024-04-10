@@ -4,6 +4,7 @@
 #include "redSocial2.h"
 #include "usuario2.h"
 #include "publicacion2.h"
+#include "venta.h"
 using namespace std;
 
 int main() {
@@ -25,7 +26,7 @@ int main() {
             publ.push_back(&puw2);
             publ.push_back(&puw3);
     RedSocial pruebaRed("SHOPIBUY",usus,publ);
-    int option,odu=4,odp=4;
+    int option,odu=4,odp=4,odv=1;
     bool off=0;
     again:
     option = 0;
@@ -141,7 +142,8 @@ int main() {
                 }
                 if (uMenuOp == 7){
                      pruebaRed.numeroDePublicaciones++;
-                     pruebaRed.agregarPublicaciones(pruebaRed.getUsuario(idUsuario)->crearVenta(odp));
+                     pruebaRed.agregarVentas(pruebaRed.getUsuario(idUsuario)->crearVenta(odv));
+                     odv++;
                      goto exploreAmigo;
                 }
 

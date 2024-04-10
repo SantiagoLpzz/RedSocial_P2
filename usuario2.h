@@ -22,12 +22,14 @@ public:
     string nacionalidad;
     vector <Usuario*> amigos;
     vector <Publicacion*> publicaciones;
+    vector <Venta*> ventas;
 
 //METODOS
     int getId ();
     void mostrar();
     void mostrarAmigos();
     void mostrarPublicaciones();
+    void mostrarVentas();
     void agregarAmigos(Usuario* nuevoAmigo);
     void agregarPublicacion(Publicacion* NuevaPublicacion);
     void crearPublicacion(int odp);
