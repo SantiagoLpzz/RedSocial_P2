@@ -2,7 +2,6 @@
 #include "publicacion2.h"
 #include "usuario2.h"
 #include "redSocial2.h"
-#include "venta.h"
 
 
 using namespace std;
@@ -34,4 +33,3 @@ Publicacion::Publicacion(int od,Usuario* usuario, string fecha, string contenido
     this->fecha=fecha;
     this->contenido=contenido;
 }
-

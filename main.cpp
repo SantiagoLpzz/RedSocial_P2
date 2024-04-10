@@ -4,8 +4,6 @@
 #include "redSocial2.h"
 #include "usuario2.h"
 #include "publicacion2.h"
-#include "venta.h"
-
 using namespace std;
 
 int main() {
@@ -130,8 +128,7 @@ int main() {
                         }
                     }
                 }
-                if (uMenuOp == 6){
-                    cout << "Introduzca el id del usuario que desea agregar como amigo" << endl;
+                if (uMenuOp == 6){z
                     pruebaRed.mostrarUsuarios();
                     cin>>idUsuarioAmigo;
                     if (idUsuarioAmigo!=idUsuario){
