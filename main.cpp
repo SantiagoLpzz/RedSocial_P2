@@ -84,6 +84,7 @@ int main() {
                 cout<<"4. CREAR PUBLICACION"<<endl;
                 cout<<"5. ENTRAR A PERFIL DE AMIGO"<<endl;
                 cout<<"6. AGREGAR UN NUEVO AMIGO"<<endl<<endl<<"--> ";
+                cout<<"7. CREAR VENTA"<<endl;
                 cin>>uMenuOp;
                 if (uMenuOp == 1){
                     
@@ -137,6 +138,11 @@ int main() {
                     }else {
                         cout<<".NO PUEDES SER TU PROPIO AMIGO BOOMER"<<endl;
                     }
+                }
+                if (uMenuOp == 7){
+                     pruebaRed.numeroDePublicaciones++;
+                     pruebaRed.agregarPublicaciones(pruebaRed.getUsuario(idUsuario)->crearVenta(odp));
+                     goto exploreAmigo;
                 }
 
                 }

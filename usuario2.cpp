@@ -4,6 +4,7 @@
 #include "usuario2.h"
 #include "redSocial2.h"
 #include "publicacion2.h"
+#include "venta.h"
 
 class Usuario;
 
@@ -102,6 +103,21 @@ Usuario* Usuario::getAmigo(int id){
     return nullptr; // Devuelve nullptr si no se encuentra ninguna coincidencia
 }
 
+Venta* Usuario::crearVenta(int odv) {
+    string fecha, contenido, lugarDeVenta;
+    double precio;
+
+    cout << endl << "Introduzca la fecha de la venta: ";
+    cin >> fecha;
+    cout << endl << "Introduzca el contenido de la venta: ";
+    cin >> contenido;
+    cout << endl << "Introduzca el precio de la venta: ";
+    cin >> precio;
+    cout << endl << "Introduzca el lugar de la venta: ";
+    cin >> lugarDeVenta;
+
+    return new Venta(odv, this, fecha, contenido, precio, lugarDeVenta);
+}
 
 //CONSTRUCTORES -----
 

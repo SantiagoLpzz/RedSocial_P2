@@ -6,6 +6,7 @@
 #include <string>
 #include "redSocial2.h"
 #include "publicacion2.h"
+#include "venta.h"
 
 using namespace std;
 
@@ -30,6 +31,7 @@ public:
     void agregarAmigos(Usuario* nuevoAmigo);
     void agregarPublicacion(Publicacion* NuevaPublicacion);
     void crearPublicacion(int odp);
+    Venta* crearVenta(int odv);
     Usuario* getAmigo(int id);
 
 //CONSTRUCTORES
