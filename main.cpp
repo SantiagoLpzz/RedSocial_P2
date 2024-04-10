@@ -55,7 +55,7 @@ int main() {
         case 3: {
 
             int idUsuario,uMenuOp=1,id_before,idUsuarioAmigo,idUsuarioPos;
-            bool forAmigo;
+            bool forAmigo,alreadyAmigo;
             Usuario* usuarioExplorado;
             Usuario* usuarioExploradoNewAmigo;
 
@@ -67,6 +67,7 @@ int main() {
             if (usuarioExplorado != nullptr)
             {
                     MenuUsu:
+                    alreadyAmigo = 0;
                 while(uMenuOp!=0){
                 cout<<".MENU USUARIO --- "<<pruebaRed.getUsuario(idUsuario)->nombre << endl<<endl;
                     if(uMenuOp==1){
@@ -134,8 +135,18 @@ int main() {
                     pruebaRed.mostrarUsuarios();
                     cin>>idUsuarioAmigo;
                     if (idUsuarioAmigo!=idUsuario){
-                    usuarioExploradoNewAmigo = pruebaRed.getUsuario(idUsuarioAmigo);
-                    pruebaRed.getUsuario(idUsuario)->agregarAmigos(usuarioExploradoNewAmigo);
+                        for (int i=0;i<pruebaRed.getUsuario(idUsuario)->amigos.size();i++){
+                            if (idUsuarioAmigo == pruebaRed.getUsuario(idUsuario)->amigos[i]->getId()){
+                                alreadyAmigo = 1;
+                            }
+                        }
+                        if (alreadyAmigo == 1){
+                            cout<<".ESTE USUARIO YA ES TU AMIGO"<<endl;
+                        }else {
+                            usuarioExploradoNewAmigo = pruebaRed.getUsuario(idUsuarioAmigo);
+                            pruebaRed.getUsuario(idUsuario)->agregarAmigos(usuarioExploradoNewAmigo);
+                            alreadyAmigo = 0;
+                        }
                     }else {
                         cout<<".NO PUEDES SER TU PROPIO AMIGO BOOMER"<<endl;
                     }
