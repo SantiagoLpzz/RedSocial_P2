@@ -6,13 +6,14 @@
 #include <string>
 #include "usuario2.h"
 
-class Usuario;
+class Usuario; 
 
 using namespace std;
 
 class Publicacion{
 private:
     int idp;
+    int idRespuesta;
 public:
     string fecha;
     string contenido;
@@ -22,7 +23,7 @@ public:
     int getIdp();
     void mostrarPublicacion();
 //CONSTRUCTORES
-    Publicacion(int od,Usuario* usuario, string fecha, string contenido);
+    Publicacion(int od,Usuario* usuario, string fecha, string contenido,int idrespuesta);
 };
 
 #endif

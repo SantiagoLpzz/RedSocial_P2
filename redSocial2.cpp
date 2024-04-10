@@ -47,12 +47,12 @@ void RedSocial::agregarPublicaciones(Publicacion* publicacion){
 
     this->numeroDePublicaciones++;
 };
-
+/*
 void RedSocial::agregarVentas(Venta* venta){
     this->ventas.push_back(venta);
 
-    this->numeroDeVentas++;
-};
+    this->numeroDeVentas++; 
+};*/
 
 void RedSocial::mostrarPublicaciones(){
     for (int i=0;i<publicaciones.size();i++){

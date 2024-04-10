@@ -56,14 +56,14 @@ void Usuario::mostrarAmigos(){
         }
 }
 
-void Usuario::mostrarVentas(){
+/*void Usuario::mostrarVentas(){
     cout << ". " << nombre << endl<<endl;
 
     for (int i=0;i<this->ventas.size();i++){
         cout<<i+1<<"."<<endl;
         this->ventas[i]->mostrarVenta();
     }
-}
+}*/
 
 void Usuario::mostrarPublicaciones(){
     cout << ". " << nombre << endl<<endl;
@@ -81,19 +81,28 @@ void Usuario::mostrarPublicaciones(){
     }
 }
 // Creo que ya sirve pero no puedo compilr entonces no se
-void Usuario::agregarAmigos(Usuario* nuevoAmigo){
+void Usuario::agregarAmigos(Usuario* nuevoAmigo){ 
     this->amigos.push_back(nuevoAmigo);
     nuevoAmigo->amigos.push_back(this);
 }
 //¯\_(ツ)_/¯
 void Usuario::crearPublicacion(int odp){
     string fecha,contenido;
+    int id_respuesta,idr_c;
     cout<<endl<<".INTRODUSCA LA FECHA DEL DIA DE HOY"<<endl<<endl<<"--> ";
     cin>>fecha;
     cout<<endl<<".INTRODUSCA EL CONTENIDO DE LA PUBLICACION"<<endl<<endl<<"--> ";
     cin>>contenido;
+    cout<<endl<<".INTRODUSCA 0 SI NO QUIERE RESPONDER A NINGUN MENSAJE INTRODUSCA CUALQUIER OTRO NUMERO SI QUIERE RESPONDER"<<endl<<endl<<"--> ";
+    cin>>idr_c;
+    if(idr_c !=0){
+        cout<<".INTRODUSCA EL ID DE LA PUBLICACION A LA QUE DESEA RESPONDER"<<endl;
+    cin>>id_respuesta;
+    }else {
+        id_respuesta=0;
+    }
     cout<<endl;
-    Publicacion* nueva = new Publicacion(odp,this,fecha,contenido);
+    Publicacion* nueva = new Publicacion(odp,this,fecha,contenido,id_respuesta);
     this->publicaciones.push_back(nueva);
     //Publicacion* send = &nueva;
     //return (send);
@@ -111,7 +120,7 @@ Usuario* Usuario::getAmigo(int id){
     }
     return nullptr; // Devuelve nullptr si no se encuentra ninguna coincidencia
 }
-
+/*
 Venta* Usuario::crearVenta(int odv) {
     string fecha, contenido, lugarDeVenta;
     double precio;
@@ -127,7 +136,7 @@ Venta* Usuario::crearVenta(int odv) {
     Venta* nuevav = new Venta(odv, this, fecha, contenido, precio, lugarDeVenta);
     this->ventas.push_back(nuevav);
     return nuevav;
-}
+}*/
 
 //CONSTRUCTORES -----
 

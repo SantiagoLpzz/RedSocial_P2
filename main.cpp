@@ -6,14 +6,14 @@
 #include "publicacion2.h"
 #include "venta.h"
 using namespace std;
-
+ 
 int main() {
         Usuario new1(1,"Orion",16,"Mexicano");
         Usuario new2(2,"Santiago",18,"Extraterrestre");
         Usuario new3(3,"Juan",17,"Chileno");
-        Publicacion puw1(1,&new1,"08/04/2024","No me funciona el codigo, pipipipi");
-        Publicacion puw2(2,&new3,"14/05/2024","No me importa");
-        Publicacion puw3(3,&new1,"015/04/2024","Como asi chavalin, PREOCUPESE");
+        Publicacion puw1(1,&new1,"08/04/2024","No me funciona el codigo, pipipipi",0);
+        Publicacion puw2(2,&new3,"14/05/2024","No me importa",1);
+        Publicacion puw3(3,&new1,"015/04/2024","Como asi chavalin, PREOCUPESE",2);
             new1.agregarPublicacion(&puw1);
             new3.agregarPublicacion(&puw2);
             new1.agregarPublicacion(&puw3);
@@ -152,10 +152,10 @@ int main() {
                     }
                 }
                 if (uMenuOp == 7){
-                     pruebaRed.numeroDePublicaciones++;
+                     /*pruebaRed.numeroDeVentas++;
                      pruebaRed.agregarVentas(pruebaRed.getUsuario(idUsuario)->crearVenta(odv));
                      odv++;
-                     goto exploreAmigo;
+                     goto exploreAmigo;*/
                 }
 
                 }
@@ -191,4 +191,3 @@ int main() {
     cout<<"BYE BYE";
     return 0;
 }
-
