@@ -30,7 +30,7 @@ int main() {
     bool off=0;
     again:
     option = 0;
-    cout<<".MENU"<<endl<<endl;
+    cout<<"SHOPIBUY .MENU"<<endl<<endl;
     cout << "0. Salir" << endl;
     cout << "1. Lista de usuarios" << endl;
     cout << "2. Lista de pubicaciones" << endl;
