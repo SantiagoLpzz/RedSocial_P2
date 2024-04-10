@@ -2,6 +2,7 @@
 #include "redSocial2.h"
 #include "usuario2.h"
 #include "publicacion2.h"
+#include "venta.h"
 using namespace std;
 
 /*
@@ -61,6 +62,12 @@ Usuario* RedSocial::getUsuario(int id){
     }
     return nullptr; 
 }
+
+void RedSocial::agregarVenta(Venta* venta) {
+    this->publicaciones.push_back(venta);
+    this->numeroDePublicaciones++;
+}
+
 
 //CONSTRUCTORES -----
 

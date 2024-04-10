@@ -4,6 +4,8 @@
 #include "redSocial2.h"
 #include "usuario2.h"
 #include "publicacion2.h"
+#include "venta.h"
+
 using namespace std;
 
 int main() {

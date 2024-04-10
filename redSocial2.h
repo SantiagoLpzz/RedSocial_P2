@@ -28,6 +28,8 @@ public:
     void mostrarPublicaciones();
     void ayuda_AU(int odu);
     Usuario* getUsuario(int id);
+    void agregarVenta(Venta* venta); 
+
 
 //CONSTRUCTORES
     RedSocial(string nombre);

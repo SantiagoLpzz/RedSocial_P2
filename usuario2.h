@@ -31,6 +31,7 @@ public:
     void agregarPublicacion(Publicacion* NuevaPublicacion);
     void crearPublicacion(int odp);
     Usuario* getAmigo(int id);
+    void crearVenta(int odp);
 
 //CONSTRUCTORES
     Usuario(int od,string nombre);
