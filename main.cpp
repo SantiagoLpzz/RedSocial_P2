@@ -25,7 +25,7 @@ int main() {
             publ.push_back(&puw1);
             publ.push_back(&puw2);
             publ.push_back(&puw3);
-    RedSocial pruebaRed("SHOPIBUY",usus,publ);
+    RedSocial shopibuy("SHOPIBUY",usus,publ);
     int option,odu=4,odp=4,odv=1;
     bool off=0;
     again:
@@ -43,12 +43,12 @@ int main() {
             break;
         }
         case 1: {
-            pruebaRed.mostrarUsuarios();
+            shopibuy.mostrarUsuarios();
             off=1;
             break;
         }
         case 2: {
-            pruebaRed.mostrarPublicaciones();
+            shopibuy.mostrarPublicaciones();
             off=1;
             break;
         }
@@ -63,19 +63,19 @@ int main() {
             cin >> idUsuario;
             exploreAmigo:
             forAmigo=0;
-            usuarioExplorado = pruebaRed.getUsuario(idUsuario);
+            usuarioExplorado = shopibuy.getUsuario(idUsuario);
             if (usuarioExplorado != nullptr)
             {
                     MenuUsu:
                     alreadyAmigo = 0;
                 while(uMenuOp!=0){
-                cout<<".MENU USUARIO --- "<<pruebaRed.getUsuario(idUsuario)->nombre << endl<<endl;
+                cout<<".MENU USUARIO --- "<<shopibuy.getUsuario(idUsuario)->nombre << endl<<endl;
                     if(uMenuOp==1){
                 cout<<endl;
                 cout << ".INFORMACION DEL USUARIO:" << endl;
-                cout << "Nombre: " << pruebaRed.getUsuario(idUsuario)->nombre << endl;
-                cout << "Edad: " << pruebaRed.getUsuario(idUsuario)->edad << endl;
-                cout << "Nacionalidad: " << pruebaRed.getUsuario(idUsuario)->nacionalidad << endl;
+                cout << "Nombre: " << shopibuy.getUsuario(idUsuario)->nombre << endl;
+                cout << "Edad: " << shopibuy.getUsuario(idUsuario)->edad << endl;
+                cout << "Nacionalidad: " << shopibuy.getUsuario(idUsuario)->nacionalidad << endl;
                 cout << endl<<endl;
                     }
 
@@ -94,20 +94,20 @@ int main() {
                 if(uMenuOp == 2){
 
                     cout << ".AMIGOS DEL USUARIO" << endl;
-                    pruebaRed.getUsuario(idUsuario)->mostrarAmigos();
+                    shopibuy.getUsuario(idUsuario)->mostrarAmigos();
                     cout << endl;
                 }
                 if (uMenuOp == 3){
 
                     cout << ".PUBLICACIONES DEL USUARIO" << endl;
-                    pruebaRed.getUsuario(idUsuario)->mostrarPublicaciones();
+                    shopibuy.getUsuario(idUsuario)->mostrarPublicaciones();
                     cout << endl;
                     goto MenuUsu;
                 }
                 if (uMenuOp == 4){
-                    pruebaRed.numeroDePublicaciones++;
-                   // pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp);
-                     pruebaRed.agregarPublicaciones(pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp));
+                    shopibuy.numeroDePublicaciones++;
+                   // shopibuy.getUsuario(idUsuario)->crearPublicacion(odp);
+                     shopibuy.agregarPublicaciones(shopibuy.getUsuario(idUsuario)->crearPublicacion(odp));
                    // cout<<". */
                     //crearPublicacion();                                                             YEEEEEEEEEEEEAAAAAAAAAAAAAHHHHHH"<<endl;
                     goto exploreAmigo;
@@ -115,8 +115,8 @@ int main() {
                 if (uMenuOp == 5){
                     cout << ".INGRESE EL ID DEL AMIGO QUE DESEA ENCONTRAR" << endl<<endl<<"--> ";
                     cin >> idUsuarioAmigo;
-                    for (int i=0;i < pruebaRed.getUsuario(idUsuario)->amigos.size();i++){
-                        if (idUsuarioAmigo==pruebaRed.getUsuario(idUsuario)->amigos[i]->getId()){
+                    for (int i=0;i < shopibuy.getUsuario(idUsuario)->amigos.size();i++){
+                        if (idUsuarioAmigo==shopibuy.getUsuario(idUsuario)->amigos[i]->getId()){
                             forAmigo=1;
                         }
                     }
@@ -132,19 +132,19 @@ int main() {
                     }
                 }
                 if (uMenuOp == 6){
-                    pruebaRed.mostrarUsuarios();
+                    shopibuy.mostrarUsuarios();
                     cin>>idUsuarioAmigo;
                     if (idUsuarioAmigo!=idUsuario){
-                        for (int i=0;i<pruebaRed.getUsuario(idUsuario)->amigos.size();i++){
-                            if (idUsuarioAmigo == pruebaRed.getUsuario(idUsuario)->amigos[i]->getId()){
+                        for (int i=0;i<shopibuy.getUsuario(idUsuario)->amigos.size();i++){
+                            if (idUsuarioAmigo == shopibuy.getUsuario(idUsuario)->amigos[i]->getId()){
                                 alreadyAmigo = 1;
                             }
                         }
                         if (alreadyAmigo == 1){
                             cout<<".ESTE USUARIO YA ES TU AMIGO"<<endl;
                         }else {
-                            usuarioExploradoNewAmigo = pruebaRed.getUsuario(idUsuarioAmigo);
-                            pruebaRed.getUsuario(idUsuario)->agregarAmigos(usuarioExploradoNewAmigo);
+                            usuarioExploradoNewAmigo = shopibuy.getUsuario(idUsuarioAmigo);
+                            shopibuy.getUsuario(idUsuario)->agregarAmigos(usuarioExploradoNewAmigo);
                             alreadyAmigo = 0;
                         }
                     }else {
@@ -152,8 +152,8 @@ int main() {
                     }
                 }
                 if (uMenuOp == 7){
-                     pruebaRed.numeroDeVentas++;
-                     pruebaRed.agregarVentas(pruebaRed.getUsuario(idUsuario)->crearVenta(odv));
+                     shopibuy.numeroDeVentas++;
+                     shopibuy.agregarVentas(shopibuy.getUsuario(idUsuario)->crearVenta(odv));
                      odv++;
                      goto exploreAmigo;
                 }
@@ -173,7 +173,7 @@ int main() {
             //pruebaRed.ayuda_AU(odu);
 
             Usuario* newusuario = new Usuario(odu,name, age, nationality);
-            pruebaRed.agregarUsuario(newusuario);
+            shopibuy.agregarUsuario(newusuario);
             odu++;
             off=1;
             break;
