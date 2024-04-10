@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "usuario2.h"
 
 class Usuario; 
 
@@ -13,8 +12,8 @@ using namespace std;
 class Publicacion{
 private:
     int idp;
-    int idRespuesta;
 public:
+    int idRespuesta;
     string fecha;
     string contenido;
     Usuario* usuario;

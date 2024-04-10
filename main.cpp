@@ -106,9 +106,9 @@ int main() {
                 }
                 if (uMenuOp == 4){
                     pruebaRed.numeroDePublicaciones++;
-                    pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp);
-                    /*pruebaRed.agregarPublicaciones(pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp));
-                    cout<<". */
+                   // pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp);
+                     pruebaRed.agregarPublicaciones(pruebaRed.getUsuario(idUsuario)->crearPublicacion(odp));
+                   // cout<<". */
                     //crearPublicacion();                                                             YEEEEEEEEEEEEAAAAAAAAAAAAAHHHHHH"<<endl;
                     goto exploreAmigo;
                 }
@@ -152,10 +152,10 @@ int main() {
                     }
                 }
                 if (uMenuOp == 7){
-                     /*pruebaRed.numeroDeVentas++;
+                     pruebaRed.numeroDeVentas++;
                      pruebaRed.agregarVentas(pruebaRed.getUsuario(idUsuario)->crearVenta(odv));
                      odv++;
-                     goto exploreAmigo;*/
+                     goto exploreAmigo;
                 }
 
                 }

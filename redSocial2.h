@@ -18,7 +18,7 @@ class RedSocial{
 private:
     vector <Usuario*> usuarios;
     vector <Publicacion*> publicaciones;
-    //vector <Venta*> ventas;
+    vector <Venta*> ventas;
 public:
     string nombre;
     int numeroDeUsuarios;
@@ -29,7 +29,7 @@ public:
     void agregarUsuario(Usuario* usuario);
     void mostrarUsuarios();
     void agregarPublicaciones(Publicacion* publicacion);
-    //void agregarVentas(Venta* venta);
+    void agregarVentas(Venta* venta);
     void mostrarPublicaciones();
     void ayuda_AU(int odu);
     Usuario* getUsuario(int id);
